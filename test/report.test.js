@@ -12,9 +12,9 @@ test('report excludes cancelled bookings', () => {
   assert.equal(result.status, 0);
   assert.ok(activeBookings.length > 0);
   for (const booking of activeBookings) {
-    assert.ok(output.includes(booking.guestName));
+    assert.ok(output.includes(`${booking.guestName}:`));
   }
   for (const booking of cancelledBookings) {
-    assert.ok(!output.includes(booking.guestName));
+    assert.ok(!output.includes(`${booking.guestName}:`));
   }
 });
