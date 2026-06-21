@@ -1,0 +1,16 @@
+[
+  {
+    "code": "MEMBER10",
+    "percentOff": 10,
+    "memberOnly": true,
+    "minimumNights": 1,
+    "expiresAt": "2026-12-31"
+  },
+  {
+    "code": "SPRING25",
+    "percentOff": 25,
+    "memberOnly": false,
+    "minimumNights": 2,
+    "expiresAt": "2026-04-30"
+  }
+]
