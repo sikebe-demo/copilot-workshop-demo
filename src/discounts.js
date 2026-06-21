@@ -10,16 +10,24 @@ export function filterEligibleOffers(offers, booking) {
       return false;
     }
 
-    // Bug for demo: expired offers should be excluded.
     if (offer.expiresAt && new Date(offer.expiresAt) < today) {
-      return true;
+      return false;
     }
 
     return true;
   });
 }
 
+export function selectBestOffer(offers) {
+  return offers.reduce((best, offer) => {
+    if ((offer.percentOff ?? 0) > (best?.percentOff ?? 0)) {
+      return offer;
+    }
+    return best;
+  }, null);
+}
+
 export function applyBestOffer(basePrice, offers) {
-  const best = offers.reduce((current, offer) => Math.max(current, offer.percentOff ?? 0), 0);
+  const best = selectBestOffer(offers)?.percentOff ?? 0;
   return Math.round(basePrice * (1 - best / 100));
 }

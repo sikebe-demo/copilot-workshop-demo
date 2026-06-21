@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { applyBestOffer, filterEligibleOffers } from '../src/discounts.js';
+import { applyBestOffer, filterEligibleOffers, selectBestOffer } from '../src/discounts.js';
 
 const offers = [
   { code: 'MEMBER10', percentOff: 10, memberOnly: true, minimumNights: 1, expiresAt: '2026-12-31' },
@@ -22,4 +22,18 @@ test('excludes expired offers', () => {
 
 test('applies the best percentage discount', () => {
   assert.equal(applyBestOffer(10000, [{ percentOff: 10 }, { percentOff: 20 }]), 8000);
+});
+
+test('selects the offer with the highest discount', () => {
+  const result = selectBestOffer([
+    { code: 'A', percentOff: 10 },
+    { code: 'B', percentOff: 20 },
+    { code: 'C', percentOff: 5 },
+  ]);
+
+  assert.equal(result.code, 'B');
+});
+
+test('returns null when there are no offers', () => {
+  assert.equal(selectBestOffer([]), null);
 });
