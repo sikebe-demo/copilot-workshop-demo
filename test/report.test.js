@@ -10,6 +10,7 @@ test('report excludes cancelled bookings', () => {
   const activeBookings = bookings.filter((booking) => !booking.isCancelled);
 
   assert.equal(result.status, 0);
+  assert.ok(cancelledBookings.length > 0);
   assert.ok(activeBookings.length > 0);
   for (const booking of activeBookings) {
     assert.ok(output.includes(`${booking.guestName}:`));
