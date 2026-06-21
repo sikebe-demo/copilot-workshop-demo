@@ -4,6 +4,10 @@ import bookings from '../data/bookings.json' with { type: 'json' };
 import offers from '../data/offers.json' with { type: 'json' };
 
 for (const booking of bookings) {
+  if (booking.isCancelled) {
+    continue;
+  }
+
   const errors = validateBooking(booking);
   if (errors.length > 0) {
     console.log(`${booking.guestName ?? 'Unknown'}: ${errors.join(', ')}`);
