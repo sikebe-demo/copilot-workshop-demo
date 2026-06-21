@@ -14,5 +14,14 @@
     "guests": 1,
     "isMember": false,
     "basePrice": 26000
+  },
+  {
+    "guestName": "Chris Sato",
+    "checkInDate": "2026-07-10",
+    "checkOutDate": "2026-07-12",
+    "guests": 2,
+    "isMember": true,
+    "basePrice": 52000,
+    "isCancelled": true
   }
 ]
