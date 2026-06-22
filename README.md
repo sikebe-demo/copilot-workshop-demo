@@ -11,6 +11,17 @@ npm test
 
 依存パッケージはありません。Node.js の標準 `node:test` だけを使います。
 
+## C# version
+
+The C# port lives under `csharp/BookingApp` and uses the same JSON files in `data/`.
+
+```powershell
+dotnet run --project csharp/BookingApp
+dotnet run --project csharp/BookingApp.Tests
+```
+
+The C# test runner uses only the .NET standard library, so it does not require NuGet test packages.
+
 ## デモ用タスク
 
 - `src/booking.js`: 予約入力の検証を追加・説明する題材。
