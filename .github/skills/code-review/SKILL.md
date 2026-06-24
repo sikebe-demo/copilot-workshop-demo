@@ -1,6 +1,7 @@
 ---
 name: code-review
-description: Changelog Live デモで使う、振る舞い・テスト・入力検証の観点に絞ったレビューを行う。
+description: ソースコードのレビュー時に必ず利用してレビューを行う。
+
 ---
 
 # 予約デモ用 Code Review Skill
