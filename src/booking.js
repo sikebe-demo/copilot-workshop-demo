@@ -6,15 +6,19 @@ export function validateBooking(input) {
   }
 
   if (!input.guestName || input.guestName.trim().length === 0) {
-    errors.push('guestName is required');
+    errors.push('guestName must be provided');
   }
 
   if (!input.checkInDate) {
-    errors.push('checkInDate is required');
+    errors.push('checkInDate must be provided');
   }
 
   if (!input.checkOutDate) {
-    errors.push('checkOutDate is required');
+    errors.push('checkOutDate must be provided');
+  }
+
+  if (input.checkInDate && input.checkOutDate && new Date(input.checkOutDate) <= new Date(input.checkInDate)) {
+    errors.push('checkOutDate must be after checkInDate');
   }
 
   if (!Number.isInteger(input.guests) || input.guests < 1) {
