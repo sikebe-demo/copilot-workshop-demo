@@ -16,9 +16,12 @@ npm test
 - `src/booking.js`: 予約入力の検証を追加・説明する題材。
 - `src/discounts.js`: filter の不具合を Agent mode / CLI で修正する題材。
 - `.github/copilot-instructions.md`: repository custom instructions の反映確認用。
+- `AGENTS.md`: Copilot code review が参照する repository-level instructions のデモ用。
+- `.github/skills/code-review/SKILL.md`: Copilot code review の Skill デモ用。
 - `.github/prompts/add-booking-tests.prompt.md`: prompt file の再利用デモ用。
 - `.github/skills/workshop-testing/SKILL.md`: Skill の構成例。
 - `.github/agents/security-reviewer.agent.md`: Custom agent の構成例。
+- `.github/workflows/changelog-actions-examples.yml`: Actions changelog の説明用 YAML。repository root ではないため実行されません。
 
 ## 初期状態
 

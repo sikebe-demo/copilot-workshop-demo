@@ -1,0 +1,41 @@
+# Example snippets for Changelog Live demos.
+# This nested workflow file is documentation for the demo workspace; it is not
+# located at the repository root, so GitHub Actions will not run it.
+
+name: Changelog Actions examples
+
+on:
+  pull_request:
+  pull_request_target:
+  workflow_dispatch:
+
+jobs:
+  safer-pull-request-target:
+    name: Safer pull_request_target checkout example
+    runs-on: ubuntu-26.04
+    if: github.event_name == 'pull_request_target'
+    steps:
+      - name: Checkout base repository by default
+        uses: actions/checkout@v7
+
+      # The following pattern is intentionally unsafe for fork pull requests.
+      # actions/checkout v7 refuses common pwn request patterns by default.
+      # - name: Unsafe fork PR checkout example
+      #   uses: actions/checkout@v7
+      #   with:
+      #     repository: ${{ github.event.pull_request.head.repo.full_name }}
+      #     ref: ${{ github.event.pull_request.head.sha }}
+
+  preview-runner-image:
+    name: Preview runner image example
+    runs-on: ubuntu-26.04
+    steps:
+      - uses: actions/checkout@v7
+      - run: node --version
+
+  manual-maintainer-only-example:
+    name: Workflow execution protection discussion example
+    runs-on: ubuntu-26.04
+    if: github.event_name == 'workflow_dispatch'
+    steps:
+      - run: echo "Use Actions policies to control who may trigger this workflow."
