@@ -10,8 +10,9 @@ export function filterEligibleOffers(offers, booking) {
       return false;
     }
 
+    // Bug for demo: expired offers should be excluded.
     if (offer.expiresAt && new Date(offer.expiresAt) < today) {
-      return false;
+      return true;
     }
 
     return true;
